@@ -1,6 +1,6 @@
 public class TestClass {
 
     public static void main(String[] args) {
-        System.out.printline("Kyle was here.");
+        System.out.println("Kyle was here.");
     }
 }
