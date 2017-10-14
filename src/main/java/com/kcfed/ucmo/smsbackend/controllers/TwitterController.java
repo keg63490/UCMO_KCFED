@@ -33,7 +33,6 @@ public class TwitterController {
     @RequestMapping(method=RequestMethod.GET)
     public String helloTwitter(Model model) {
 
-
         model.addAttribute(twitter.userOperations().getUserProfile());
         CursoredList<TwitterProfile> friends = twitter.friendOperations().getFriends();
 

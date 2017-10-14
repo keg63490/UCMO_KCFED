@@ -1,4 +1,6 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
 <head>
     <title>Hello Facebook</title>
 </head>
@@ -7,11 +9,19 @@
 
 <h4>Here is your feed:</h4>
 
+
+
 <div th:each="post:${feed}">
-    <!--<b th:text="${post.from.name}">from</b> wrote:-->
-    <p th:text="${post.message}">message text</p>
-    <img th:if="${post.picture}" th:src="${post.picture}"/>
-    <hr/>
+    <a th:href="${post.link}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div>
+            <p th:text="${post.message}">message text</p>
+            <img th:if="${post.picture}" th:src="${post.picture}"/>
+            <span aria-colindex="24">
+            <small th:text="${post.createdTime }" style="text-align: right"></small>
+                </span>
+            <hr/>
+        </div>
+    </a>
 </div>
 </body>
 </html>

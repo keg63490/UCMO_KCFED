@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
 
     <style>
         body, h1, h5 {
@@ -17,10 +19,10 @@
             height: 100%
         }
 
+
         .bgimg {
-            background-image: url('./backgrnd3.png');
             min-height: 100%;
-            background-position: center;
+            background: url('backgrnd3.png') center;
             background-size: cover;
         }
     </style>
@@ -42,12 +44,12 @@
 
 <!--<div id="fb-root"></div>-->
 <!--<script>(function (d, s, id) {-->
-    <!--var js, fjs = d.getElementsByTagName(s)[0];-->
-    <!--if (d.getElementById(id)) return;-->
-    <!--js = d.createElement(s);-->
-    <!--js.id = id;-->
-    <!--js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=220697878470502";-->
-    <!--fjs.parentNode.insertBefore(js, fjs);-->
+<!--var js, fjs = d.getElementsByTagName(s)[0];-->
+<!--if (d.getElementById(id)) return;-->
+<!--js = d.createElement(s);-->
+<!--js.id = id;-->
+<!--js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=220697878470502";-->
+<!--fjs.parentNode.insertBefore(js, fjs);-->
 <!--}(document, 'script', 'facebook-jssdk'));</script>-->
 
 
@@ -60,18 +62,18 @@
     <div class="w3-display-topleft w3-container w3-xlarge">
         <p>
             <button onclick="document.getElementById('scanner').style.display='block'" class="w3-button w3-red">
-                scanner
+                Scan Social Media
             </button>
         </p>
         <p>
             <button onclick="document.getElementById('resume').style.display='block'" class="w3-button w3-red">
-                resume
+                Resume
             </button>
         </p>
-         <p>
-		    <button onclick="document.getElementById('expectations').style.display='block'" class="w3-button w3-red">
-		        expectations
-		    </button>
+        <p>
+            <button onclick="document.getElementById('expectations').style.display='block'" class="w3-button w3-red">
+                expectations
+            </button>
         </p>
     </div>
     <div class="w3-display-bottomleft w3-container">
@@ -96,11 +98,15 @@
 
         <div class="w3-container">
             <form action="/connect/facebook" method="POST">
-                <input type="hidden" name="scope" value="user_posts" />
-                <p><button type="submit">Connect to Facebook</button></p>
+                <input type="hidden" name="scope" value="user_posts"/>
+                <p>
+                    <button type="submit">Connect to Facebook</button>
+                </p>
             </form>
             <form action="/connect/twitter" method="POST">
-                <p><button type="submit">Connect to Twitter</button></p>
+                <p>
+                    <button type="submit">Connect to Twitter</button>
+                </p>
             </form>
         </div>
     </div>
@@ -134,7 +140,7 @@
 
 <div id="twitter" class="w3-modal">
     <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black w3-display-container">
+        <div class="w3-container w3-display-container">
             <span onclick="document.getElementById('twitter').style.display='none'"
                   class="w3-button w3-display-topright w3-large">x</span>
             <h1>Twitter</h1>
@@ -150,112 +156,79 @@
 
 
 <!-- ***************************** resume modal ***************************** -->
+<div id="resume" class="modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Resume Builder</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body">
+                    <div class="form-group">
 
-<div id="resume" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black">
-            <span onclick="document.getElementById('resume').style.display='none'"
-                  class="w3-button w3-display-topright w3-large">x</span>
-            <h1>Resume Builder</h1>
+                        <form action="#" th:action="@{/resume}" th:object="${resume}" method="POST">
+                            <h2>Personal Information</h2>
+
+                            <p id="rNameParent">
+                                <input type="text" class="form-control"
+                                       placeholder="Name"
+                                       name="Name"
+                                       id="rName" th:field="*{name}"/>
+                                <input type="text" placeholder="Address" class="form-control"
+                                       name="Address" id="rAddress" th:field="*{address}"/>
+                                <input type="text" placeholder="Phone Number" name="Phone Number" class="form-control"
+                                       id="rPhone"/>
+                                <input type="text" placeholder="Email" th:field="*{email}"
+                                       class="form-control"  name="Email" id="rEmail"/>
+                                <input type="text" placeholder="LinkedIn" th:field="*{linkedIn}" class="form-control"
+                                       name="LinkedIn" id="rLinkedIn"/>
+                                <input type="text" placeholder="Repository" th:field="*{repository}" class="form-control"
+                                       name="Repository" id="rRepository"/></p>
+
+                            <h2>Work Experience</h2>
+
+                            <p id="rWorkParent">
+                                <input type="text" placeholder="Position" th:field="*{position}" class="form-control"
+                                       name="Position" id="rPosition"/>
+                                <input type="text" placeholder="Company" th:field="*{company}" class="form-control"
+                                       name="Company" id="rCompany"/>
+                                <input type="text" placeholder="Start Date" th:field="*{startDate}" class="form-control"
+                                       name="Start Date" id="rStart"/>
+                                <input type="text" placeholder="End Date" th:field="*{endDate}" class="form-control"
+                                       name="End Date" id="rEnd"/></p>
+
+                            <h2>Education</h2>
+
+                            <p id="rEducationParent">
+                                <input type="text" placeholder="University" th:field="*{university}" class="form-control"
+                                       name="University" id="rUniversity"/>
+                                <input type="text" placeholder="Program" th:field="*{program}" class="form-control"
+                                       name="Program" id="rProgram"/>
+                                <input type="text" placeholder="Degree" th:field="*{degree}" class="form-control"
+                                       name="Degree" id="rDegree"/></p>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-primary" value="Submit Form"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
         </div>
-        <!--<div class="w3-container">-->
-
-            <!--<h2>Personal Information</h2>-->
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Name" required-->
-                      <!--name="Name">-->
-            <!--</p>-->
-
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Address" required-->
-                      <!--name="Address">-->
-            <!--</p>-->
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Phone Number" required-->
-                      <!--name="Phone Number">-->
-            <!--</p>-->
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Email" required-->
-                      <!--name="Email">-->
-            <!--</p>-->
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="LinkedIn" required-->
-                      <!--name="LinkedIn">-->
-            <!--</p>-->
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Repository" required-->
-                      <!--name="Repository">-->
-            <!--</p>-->
-            <!--<h2>Work Experience</h2>-->
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Position" required-->
-                      <!--name="Position">-->
-            <!--</p>-->
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Company" required-->
-                      <!--name="Company">-->
-            <!--</p>-->
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Start Date" required-->
-                      <!--name="Start Date">-->
-            <!--</p>-->
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="End Date" required-->
-                      <!--name="End Date">-->
-            <!--</p>-->
-            <!--<h2>Education</h2>-->
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="University" required-->
-                      <!--name="University">-->
-            <!--</p>-->
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Program" required-->
-                      <!--name="Address">-->
-            <!--</p>-->
-
-            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Degree" required-->
-                      <!--name="Degree">-->
-            <!--</p>-->
-
-
-            <!--<p>-->
-                <!--<button class="w3-button w3-red" type="submit">Start resume</button>-->
-            <!--</p>-->
-
-            <!--</form>-->
-        <!--</div>-->
     </div>
 </div>
 
-<!-- ***************************** end  ***************************** -->
+<!--<div class="modal-backdrop fade in"></div>-->
 
-
-<!-- ***************************** pattern ***************************** -->
-
-<!--div id="info" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black w3-display-container">
-            <span onclick="document.getElementById('info').style.display='none'"
-                  class="w3-button w3-display-topright w3-large">x</span>
-            <h1>Starters</h1>
-        </div>
-        <div class="w3-container">
-            <h5>Tomato Soup <b>$2.50</b></h5>
-            <h5>Chicken Salad <b>$3.50</b></h5>
-            <h5>Bread and Butter <b>$1.00</b></h5>
-        </div>
-        <div class="w3-container w3-black">
-            <h1>Main Courses</h1>
-        </div>
-        <div class="w3-container">
-            <h5>Grilled Fish and Potatoes <b>$8.50</b></h5>
-            <h5>Italian Pizza <b>$5.50</b></h5>
-            <h5>Veggie Pasta <b>$4.00</b></h5>
-            <h5>Chicken and Potatoes <b>$6.50</b></h5>
-            <h5>Deluxe Burger <b>$5.00</b></h5>
-        </div>
-    </div>
-</div-->
-
-
-
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
 </body>
 </html>
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:font-size="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mules 1</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <style>
+        .bg-1{
+            background-color: bisque;
+            color: darkred;
+        }
+        .bg-2{
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="bg-1">
+    <div class="container-fluid">
+        <h3 class="text-center" style="font-size:28px" id="rName" th:text="${resume.name}"></h3>
+        <h3 class="text-center" style="font-size:28px" id="rAddress" th:text="${resume.address}"></h3>
+        <h3 class="text-center" style="font-size:28px" id="rPhone" th:text="${resume.phone}"></h3>
+        <h3 class="text-center" style="font-size:28px" id="rEmail" th:text="${resume.email}"></h3>
+        <h3 class="text-center" style="font-size:28px" id="rLinkedIn" th:text="${resume.linkedIn}"></h3>
+        <h3 class="text-center" style="font-size:28px" id="rRepository" th:text="${resume.repository}"></h3>
+    </div>
+</div>
+<div class="bg-2">
+    <div class="container-fluid">
+        <h4 style="font-size:24px;color:darkred" >EDUCATION</h4>
+        <h4 id="rProgram" th:text="${resume.program}"></h4>
+        <h4 id="rUniversity" th:text="${resume.university}"></h4>
+        <h5 id="rDegree" th:text="${resume.degree}"></h5>
+        <!-- <h5>[GPA]</h5-->
+        <h5>[You should include any other information here: clubs, awards, related courses, etc.]</h5>
+    </div>
+    <div class="container-fluid">
+        <h4 style="font-size:24px;color:darkred" id="rWork">EXPERIENCE</h4>
+        <h4 id="rPosition" th:text="${resume.position}"></h4>
+        <h4 id="rCompany" th:text="${resume.company}"></h4>
+        <h5 id="rStart" th:text="${resume.startDate}"></h5>
+        <h5 id="rEnd" th:text="${resume.endDate}"></h5>
+        <h5>[Brief Description]</h5>
+    </div>
+    <div class="container-fluid">
+        <h4 style="font-size:24px;color:darkred">[REFERENCES]</h4>
+        <h5>[Name | Phone Number | Email]</h5>
+        <h5>[Name | Phone Number | Email]</h5>
+    </div>
+</div>
+</body>
+</html>
