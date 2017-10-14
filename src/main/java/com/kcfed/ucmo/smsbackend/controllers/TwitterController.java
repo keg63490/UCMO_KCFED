@@ -3,7 +3,6 @@ package com.kcfed.ucmo.smsbackend.controllers;
 
 import javax.inject.Inject;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.social.connect.ConnectionRepository;
         import org.springframework.social.twitter.api.CursoredList;
 import org.springframework.social.twitter.api.Tweet;
@@ -33,15 +32,13 @@ public class TwitterController {
 
     @RequestMapping(method=RequestMethod.GET)
     public String helloTwitter(Model model) {
-//        if (connectionRepository.findPrimaryConnection(Twitter.class) == null) {
-//            return "redirect:/connect/twitter";
-//        }
+
 
         model.addAttribute(twitter.userOperations().getUserProfile());
         CursoredList<TwitterProfile> friends = twitter.friendOperations().getFriends();
 
         List<Tweet> tweets = twitter.timelineOperations()
-                                                        .getUserTimeline()
+                                                        .getUserTimeline(20, 0, Long.MIN_VALUE)
                                                         .stream()
                                                         .filter(tweet -> checkWords(tweet.getText()))
                                                         .collect(Collectors.toList());
@@ -50,7 +47,7 @@ public class TwitterController {
     }
 
     private boolean checkWords(String text) {
-        String[] words = {"app", "random"};
+        String[] words = {"test", "random"};
 
         for (String word : words) {
             if (text.contains(word))
