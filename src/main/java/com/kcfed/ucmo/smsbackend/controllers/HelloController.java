@@ -1,5 +1,6 @@
 package com.kcfed.ucmo.smsbackend.controllers;
 
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.*;
 import org.springframework.stereotype.Controller;
@@ -7,11 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/")
@@ -19,6 +16,7 @@ public class HelloController {
 
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
+
 
     public HelloController(Facebook facebook, ConnectionRepository connectionRepository) {
         this.facebook = facebook;
@@ -48,24 +46,18 @@ public class HelloController {
         PagedList<Post> feed = facebook.feedOperations().getFeed();
         ArrayList<Post> filteredFeed = new ArrayList<>();
 
-        Scanner scanner;
-        try {
-            scanner = new Scanner(new File("src/main/java/resources/filteredWords"));
+        String[] words = {"Next", "Birthday", "Whooped"};
 
-            while (scanner.hasNext()) {
-                String word = scanner.nextLine();
-                for (Post post : feed) {
-                    if (post.getMessage() != null && post.getMessage().contains(word))
-                        filteredFeed.add(post);
-                }
+        for (String word : words) {
+
+            for (Post post : feed) {
+                if (post.getMessage() != null && post.getMessage().contains(word))
+                    filteredFeed.add(post);
             }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
-
+        feed.clear();
         feed.addAll(filteredFeed);
-        model.addAttribute("feed", feed);
+        model.addAttribute("feed", filteredFeed);
         return "hello";
     }
 
