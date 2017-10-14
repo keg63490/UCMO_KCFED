@@ -5,12 +5,6 @@ import org.springframework.social.connect.ConnectionFactoryLocator;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.web.ConnectController;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class FacebookCallbackController extends ConnectController {
@@ -27,6 +21,9 @@ public class FacebookCallbackController extends ConnectController {
 
     @Override
     protected String connectedView(String providerId) {
+        if (providerId.equals("facebook"))
         return "redirect:/facebookfeed";
+        else
+            return "redirect:/tweets";
     }
 }

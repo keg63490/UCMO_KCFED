@@ -11,13 +11,13 @@ import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/facebookfeed")
-public class HelloController {
+public class FacebookController {
 
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
 
 
-    public HelloController(Facebook facebook, ConnectionRepository connectionRepository) {
+    public FacebookController(Facebook facebook, ConnectionRepository connectionRepository) {
         this.facebook = facebook;
         this.connectionRepository = connectionRepository;
     }

@@ -10,5 +10,4 @@ public class SmsBackendApplication {
 		SpringApplication.run(SmsBackendApplication.class, args);
 	}
 
-
 }
