@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mules One</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
+
+    <style>
+        body, h1, h5 {
+            font-family: "Raleway", sans-serif
+        }
+
+        body, html {
+            height: 100%
+        }
+
+        .bgimg {
+            background-image: url('./backgrnd3.png');
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+
+    <script>
+
+        // nav bar controls 1 and 2
+        function closeScanner() {
+            var x = document.getElementById("scanner");
+            document.getElementById('facebook').style.display = 'none';
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+
+<!--<div id="fb-root"></div>-->
+<!--<script>(function (d, s, id) {-->
+    <!--var js, fjs = d.getElementsByTagName(s)[0];-->
+    <!--if (d.getElementById(id)) return;-->
+    <!--js = d.createElement(s);-->
+    <!--js.id = id;-->
+    <!--js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=220697878470502";-->
+    <!--fjs.parentNode.insertBefore(js, fjs);-->
+<!--}(document, 'script', 'facebook-jssdk'));</script>-->
+
+
+<!-- ***************************** main page  ***************************** -->
+
+<div class="bgimg w3-display-container w3-text-red">
+    <div class="w3-display-middle w3-jumbo">
+        <p>CAMPUS TO CORPORATE</p>
+    </div>
+    <div class="w3-display-topleft w3-container w3-xlarge">
+        <p>
+            <button onclick="document.getElementById('scanner').style.display='block'" class="w3-button w3-red">
+                scanner
+            </button>
+        </p>
+        <p>
+            <button onclick="document.getElementById('resume').style.display='block'" class="w3-button w3-red">
+                resume
+            </button>
+        </p>
+         <p>
+		    <button onclick="document.getElementById('expectations').style.display='block'" class="w3-button w3-red">
+		        expectations
+		    </button>
+        </p>
+    </div>
+    <div class="w3-display-bottomleft w3-container">
+        <p class="w3-xlarge">IpsumGods</p>
+        <p class="w3-large">Powered by Pizza</p>
+        <!--p>powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p-->
+    </div>
+</div>
+
+<!-- ***************************** end  ***************************** -->
+
+
+<!-- ***************************** Scanner Modal ***************************** -->
+
+<div id="scanner" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-black w3-display-container">
+            <span onclick="document.getElementById('scanner').style.display='none'"
+                  class="w3-button w3-display-topright w3-large">x</span>
+            <h1>Social Media Scanner</h1>
+        </div>
+
+        <div class="w3-container">
+            <form action="/connect/facebook" method="POST">
+                <input type="hidden" name="scope" value="user_posts" />
+                <p><button type="submit">Connect to Facebook</button></p>
+            </form>
+            <button onclick="document.getElementById('twitter').style.display='block'" class="w3-button w3-red">
+                Twitter
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ***************************** end  ***************************** -->
+
+
+<!-- ***************************** facebook submodal  ***************************** -->
+
+<div id="facebook" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-black w3-display-container">
+            <span onclick="document.getElementById('facebook').style.display='none'"
+                  class="w3-button w3-display-topright w3-large">x</span>
+            <h1>Facebook</h1>
+        </div>
+
+        <div class="w3-container">
+            <p>
+
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- *****************************  end ***************************** -->
+
+
+<!-- ***************************** twitter submodal  ***************************** -->
+
+<div id="twitter" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-black w3-display-container">
+            <span onclick="document.getElementById('twitter').style.display='none'"
+                  class="w3-button w3-display-topright w3-large">x</span>
+            <h1>Twitter</h1>
+        </div>
+
+        <div class="w3-container">
+            <p>Something here</p>
+        </div>
+    </div>
+</div>
+
+<!-- ***************************** end  ***************************** -->
+
+
+<!-- ***************************** resume modal ***************************** -->
+
+<div id="resume" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-black">
+            <span onclick="document.getElementById('resume').style.display='none'"
+                  class="w3-button w3-display-topright w3-large">x</span>
+            <h1>Resume Builder</h1>
+        </div>
+        <!--<div class="w3-container">-->
+
+            <!--<h2>Personal Information</h2>-->
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Name" required-->
+                      <!--name="Name">-->
+            <!--</p>-->
+
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Address" required-->
+                      <!--name="Address">-->
+            <!--</p>-->
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Phone Number" required-->
+                      <!--name="Phone Number">-->
+            <!--</p>-->
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Email" required-->
+                      <!--name="Email">-->
+            <!--</p>-->
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="LinkedIn" required-->
+                      <!--name="LinkedIn">-->
+            <!--</p>-->
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Repository" required-->
+                      <!--name="Repository">-->
+            <!--</p>-->
+            <!--<h2>Work Experience</h2>-->
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Position" required-->
+                      <!--name="Position">-->
+            <!--</p>-->
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Company" required-->
+                      <!--name="Company">-->
+            <!--</p>-->
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Start Date" required-->
+                      <!--name="Start Date">-->
+            <!--</p>-->
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="End Date" required-->
+                      <!--name="End Date">-->
+            <!--</p>-->
+            <!--<h2>Education</h2>-->
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="University" required-->
+                      <!--name="University">-->
+            <!--</p>-->
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Program" required-->
+                      <!--name="Address">-->
+            <!--</p>-->
+
+            <!--<p><input class="w3-input w3-padding-6 w3-border" type="text" placeholder="Degree" required-->
+                      <!--name="Degree">-->
+            <!--</p>-->
+
+
+            <!--<p>-->
+                <!--<button class="w3-button w3-red" type="submit">Start resume</button>-->
+            <!--</p>-->
+
+            <!--</form>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<!-- ***************************** end  ***************************** -->
+
+
+<!-- ***************************** pattern ***************************** -->
+
+<!--div id="info" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-black w3-display-container">
+            <span onclick="document.getElementById('info').style.display='none'"
+                  class="w3-button w3-display-topright w3-large">x</span>
+            <h1>Starters</h1>
+        </div>
+        <div class="w3-container">
+            <h5>Tomato Soup <b>$2.50</b></h5>
+            <h5>Chicken Salad <b>$3.50</b></h5>
+            <h5>Bread and Butter <b>$1.00</b></h5>
+        </div>
+        <div class="w3-container w3-black">
+            <h1>Main Courses</h1>
+        </div>
+        <div class="w3-container">
+            <h5>Grilled Fish and Potatoes <b>$8.50</b></h5>
+            <h5>Italian Pizza <b>$5.50</b></h5>
+            <h5>Veggie Pasta <b>$4.00</b></h5>
+            <h5>Chicken and Potatoes <b>$6.50</b></h5>
+            <h5>Deluxe Burger <b>$5.00</b></h5>
+        </div>
+    </div>
+</div-->
+
+
+
+</body>
+</html>
+

@@ -1,6 +1,5 @@
 package com.kcfed.ucmo.smsbackend.controllers;
 
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.*;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/facebookfeed")
 public class HelloController {
 
     private Facebook facebook;
@@ -46,18 +45,18 @@ public class HelloController {
         PagedList<Post> feed = facebook.feedOperations().getFeed();
         ArrayList<Post> filteredFeed = new ArrayList<>();
 
-        String[] words = {"Next", "Birthday", "Whooped"};
+        String[] words = {"next", "birthday", "whooped"};
 
         for (String word : words) {
 
             for (Post post : feed) {
-                if (post.getMessage() != null && post.getMessage().contains(word))
+                if (post.getMessage() != null && post.getMessage().toLowerCase().contains(word))
                     filteredFeed.add(post);
             }
         }
         feed.clear();
         feed.addAll(filteredFeed);
-        model.addAttribute("feed", filteredFeed);
+        model.addAttribute("feed", feed);
         return "hello";
     }
 
