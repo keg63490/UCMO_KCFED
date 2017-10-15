@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<head>
+    <title>Filtered Facebook Posts</title>
+</head>
+<body>
+<!--<h3>Hello, <span th:text="${facebookProfile.name}">Some User</span>!</h3>-->
+<div th:replace="fragments/header :: header"></div>
+
+<h4>Here is your feed:</h4>
+
+
+<div class="w3-container">
+    <div th:each="post:${feed}">
+        <a th:href="${post.link}"
+           class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="w3-right-align">
+                <small th:text="${post.createdTime}"></small>
+            </div>
+            <div class="w3-container w3-large">
+                <div class="w3-left-align">
+                    <div class="w3-right-align">
+                        <img th:if="${post.picture}" th:src="${post.picture}"/>
+                    </div>
+                    <p th:text="${post.message}" style="text-align: center;"></p>
+                </div>
+                <hr/>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

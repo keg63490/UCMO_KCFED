@@ -4,7 +4,7 @@
 <head>
     <title>Mules One</title>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1"/>-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
@@ -27,6 +27,40 @@
             background: url("backgrnd3.png");
             background-size: cover;
         }
+        .smButton {
+            padding: 0;
+            border: none;
+            background: none;
+            margin:auto;
+            display: table-cell;
+            vertical-align: top;
+
+        }
+
+        .element {
+            width: 80%;
+            height: 100px;
+            margin: auto;
+
+        }
+
+        #buttonBox {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            margin-bottom: 10px;
+            padding-bottom: 2%;
+            padding-top: 2%;
+        }
+
+        .formClass {
+            text-align: center;
+
+        }
+
+        .headWidth {
+            width: 100%;
+        }
 
     </style>
 
@@ -36,7 +70,7 @@
 <!-- ***************************** main page  ***************************** -->
 
 <!--<h1>Mules ONE</h1>-->
-<div th:replace="fragments/header :: header"></div>
+<header th:replace="fragments/header :: header"></header>
 
 <div class="bgimg w3-display-container w3-text-red">
     <div class="w3-display-topmiddle w3-jumbo">

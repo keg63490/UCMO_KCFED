@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">>
+
+<nav class="navbar navbar-toggleable-xl navbar-inverse bg-inverse navbar-fixed-top" th:fragment="header">
+    <div>
+        <a class="navbar-brand" href="/">Campus2Corporate</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a class="nav-item" href="/">Home</a>
+            </li>
+            <li>
+                <a class="nav-item" href="#">Expectations</a>
+            </li>
+            <li class="dropdown nav-item">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                   role="button" aria-haspopup="true" aria-expanded="false">Scanners
+                    <span
+                            class="caret">
+
+                            </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">
+                            Facebook
+                            <form action="/connect/facebook" method="POST">
+                                <input type="hidden" name="scope" value="user_posts"/>
+                                <p>
+                                    <button type="submit">Connect to Facebook</button>
+                                </p>
+                            </form>
+                        </a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+</html>
