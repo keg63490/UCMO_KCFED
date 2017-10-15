@@ -21,37 +21,12 @@
         body, html {
             height: 100%
         }
-        .fa {
-            padding: 20px;
-            font-size: 30px;
-            width: 30px;
-            text-align: center;
-            text-decoration: none;
-            margin: 5px 2px;
-            border-radius: 100%;
-        }
-
-        .fa:hover {
-            opacity: 0.7;
-        }
-
-        .fa-facebook {
-            background: #3B5998;
-            color: white;
-        }
-
-        .fa-twitter {
-            background: #55ACEE;
-            color: white;
-        }
 
         .bgimg {
             min-height: 100%;
             background: url("backgrnd3.png");
             background-size: cover;
         }
-
-
 
     </style>
 
@@ -60,27 +35,36 @@
 
 <!-- ***************************** main page  ***************************** -->
 
-<h1>Mules ONE</h1>
+<!--<h1>Mules ONE</h1>-->
+<div th:replace="fragments/header :: header"></div>
+
 <div class="bgimg w3-display-container w3-text-red">
-    <div class="w3-display-middle w3-jumbo">
+    <div class="w3-display-topmiddle w3-jumbo">
         <p>CAMPUS TO CORPORATE</p>
     </div>
-    <div class="w3-display-topleft w3-container w3-xlarge">
-        <p>
+    <div class="w3-display-middle w3-container w3-xlarge">
+        <div class="w3-container w3-cell">
             <button onclick="document.getElementById('scanner').style.display='block'" class="w3-button w3-red">
                 Scan Social Media
             </button>
-        </p>
-        <p>
+        </div>
+        <div class="w3-container w3-cell w3-border w3-white">
+            <header class="w3-container">
+                <h1 style="text-align: center;">Resume</h1>
+            </header>
+            <div class="w3-container">
             <button onclick="document.getElementById('resume').style.display='block'" class="w3-button w3-red">
                 Resume
             </button>
-        </p>
-        <p>
+            </div>
+        </div>
+        <div class="w3-container w3-cell">
+            <div class="w3-card-4">
             <button onclick="document.getElementById('expectations').style.display='block'" class="w3-button w3-red">
                 expectations
             </button>
-        </p>
+            </div>
+        </div>
     </div>
     <div class="w3-display-bottomleft w3-container">
         <p class="w3-xlarge">IpsumGods</p>
@@ -94,38 +78,38 @@
 
 <!-- ***************************** Scanner Modal ***************************** -->
 
-<div id="scanner" class="w3-modal">
+<div id="scanner" class="w3-modal " >
     <div class="w3-modal-content w3-animate-zoom">
         <!--<div class="w3-container w3-black w3-display-container">-->
-            <!--<span onclick="document.getElementById('scanner').style.display='none'"-->
-                  <!--class="w3-button w3-display-topright w3-large">x</span>-->
-            <!--<h1 style="text-align:center">Social Media Scanner</h1>-->
+        <!--<span onclick="document.getElementById('scanner').style.display='none'"-->
+        <!--class="w3-button w3-display-topright w3-large">x</span>-->
+        <!--<h1 style="text-align:center">Social Media Scanner</h1>-->
         <!--</div>-->
-        <div class="modal-header">
+        <div class="modal-header w3-red headWidth" >
             <span onclick="document.getElementById('scanner').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
             <h5 class="modal-title">Social Media Scanner</h5>
 
         </div>
-        <div class="w3-container">
-            <div class="w3-container w3-cell">
-                <form action="/connect/facebook" method="POST">
+
+        <div class="w3-container" id="buttonBox">
+            <div class="w3-container w3-cell smButton element" id="facebookButton">
+                <form class="formClass" action="/connect/facebook" method="POST">
                     <input type="hidden" name="scope" value="user_posts"/>
-                    <p>
-                        <button type="submit">Connect to Facebook</button>
-                    </p>
+
+                    <button class="smButton" type="submit"><img src="Facebook.png" height="330" width="330"/></button>
+
+
                 </form>
             </div>
-            <div class="w3-container w3-cell">
-                <form action="/connect/twitter" method="POST">
-                    <p>
-                        <button type="submit">Connect to Twitter</button>
-                    </p>
+            <div class="w3-container w3-cell smButton element" id="twitterButton">
+                <form class="formClass" action="/connect/twitter" method="POST">
+                    <button class="smButton" type="submit"><img src="Twitter.png" height="330" width="330"/> </button>
+
                 </form>
             </div>
         </div>
     </div>
 </div>
-
 <!-- ***************************** end  ***************************** -->
 
 

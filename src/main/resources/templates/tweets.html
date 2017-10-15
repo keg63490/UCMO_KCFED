@@ -7,12 +7,14 @@
 </head>
 <body>
 <!--<h3>Hello, <span th:text="${facebookProfile.name}">Some User</span>!</h3>-->
+<div th:replace="fragments/header :: header"></div>
 
 <h4>Matched Tweets:</h4>
 
 <div class="w3-container">
     <div th:each="tweet:${tweets}">
-        <a th:href="@{'https://twitter.com/statuses/' + ${tweet.idStr}}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <a th:href="@{'https://twitter.com/statuses/' + ${tweet.idStr}}"
+           class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="w3-right-align">
                 <small th:text="${tweet.createdAt}"></small>
             </div>
@@ -27,3 +29,9 @@
 </div>
 </body>
 </html>
+
+<style>
+
+
+
+</style>
