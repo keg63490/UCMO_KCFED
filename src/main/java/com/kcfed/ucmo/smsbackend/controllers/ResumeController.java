@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/resume")
 public class ResumeController {
 
-    Resume resume;
+    private Resume resume;
 
     @RequestMapping(method = RequestMethod.GET)
     public String resumeForm(Model model) {

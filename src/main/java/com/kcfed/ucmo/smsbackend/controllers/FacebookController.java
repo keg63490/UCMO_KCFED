@@ -7,7 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/facebookfeed")
@@ -15,6 +16,7 @@ public class FacebookController {
 
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
+    private String[] words = {"next", "birthday"};
 
 
     public FacebookController(Facebook facebook, ConnectionRepository connectionRepository) {
@@ -29,12 +31,12 @@ public class FacebookController {
         }
         String [] fields = { "id","name","birthday","email","location","hometown","gender","first_name","last_name"};
         User user = facebook.fetchObject("me", User.class, fields);
-        String name=user.getName();
-        String birthday=user.getBirthday();
-        String email=user.getEmail();
-        String gender=user.getGender();
-        String firstname=user.getFirstName();
-        String lastname=user.getLastName();
+        String name = user.getName();
+        String birthday = user.getBirthday();
+        String email = user.getEmail();
+        String gender = user.getGender();
+        String firstname = user.getFirstName();
+        String lastname = user.getLastName();
         model.addAttribute("name",name );
         model.addAttribute("birthday",birthday );
         model.addAttribute("email",email );
@@ -42,22 +44,34 @@ public class FacebookController {
         model.addAttribute("firstname",firstname);
         model.addAttribute("lastname",lastname);
         model.addAttribute("facebookProfile", facebook.fetchObject("me", User.class, fields));
-        PagedList<Post> feed = facebook.feedOperations().getFeed();
-        ArrayList<Post> filteredFeed = new ArrayList<>();
 
-        String[] words = {"next", "birthday"};
+        List<Post> posts = facebook
+                .feedOperations()
+                .getFeed()
+                .stream()
+                .filter(this::checkWords)
+                .collect(Collectors.toList());
 
-        for (String word : words) {
-
-            for (Post post : feed) {
-                if (post.getMessage() != null && post.getMessage().toLowerCase().contains(word))
-                    filteredFeed.add(post);
-            }
-        }
-        feed.clear();
-        feed.addAll(filteredFeed);
-        model.addAttribute("feed", feed);
+        model.addAttribute("feed", posts);
         return "facebookPosts";
     }
 
+    private boolean checkWords(Post post) {
+
+        if (post.getMessage() != null) {
+            String message = post.getMessage().toLowerCase();
+            for (String word : words) {
+                if (message.contains(word))
+                    return true;
+            }
+        }
+        if (post.getCaption() != null) {
+            String caption = post.getCaption().toLowerCase();
+            for (String word : words) {
+                if (caption.contains(word))
+                    return true;
+            }
+        }
+        return false;
+    }
 }

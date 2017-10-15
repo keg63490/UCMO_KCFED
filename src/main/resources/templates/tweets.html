@@ -1,15 +1,20 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:text-align="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 
 <head>
+    <title>Filtered Tweets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
 </head>
 <body>
-<!--<h3>Hello, <span th:text="${facebookProfile.name}">Some User</span>!</h3>-->
 <div th:replace="fragments/header :: header"></div>
 
-<h4>Matched Tweets:</h4>
+<h2 style="padding-top: 50px; color:red; justify-content: center;   text-align: center;">Detected Tweets</h2>
 
 <div class="w3-container">
     <div th:each="tweet:${tweets}">
@@ -29,9 +34,3 @@
 </div>
 </body>
 </html>
-
-<style>
-
-
-
-</style>

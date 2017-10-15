@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Mules One</title>
     <meta charset="UTF-8"/>
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1"/>-->
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
-
-    <!--<script src="https://use.fontawesome.com/d83564e635.js"></script>-->
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     <style>
         body, h1, h5 {
@@ -27,21 +30,20 @@
             background: url("backgrnd3.png");
             background-size: cover;
         }
+
         .smButton {
             padding: 0;
             border: none;
             background: none;
-            margin:auto;
+            margin: auto;
             display: table-cell;
             vertical-align: top;
-
         }
 
         .element {
             width: 80%;
             height: 100px;
             margin: auto;
-
         }
 
         #buttonBox {
@@ -53,6 +55,20 @@
             padding-top: 2%;
         }
 
+        #facebookButton, #twitterButton {
+            border: none;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 15px 32px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
+        #facebookButton:hover, #twitterButton:hover {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
         .formClass {
             text-align: center;
 
@@ -62,6 +78,10 @@
             width: 100%;
         }
 
+        #logo.reize {
+
+        }
+
     </style>
 
 </head>
@@ -69,58 +89,62 @@
 
 <!-- ***************************** main page  ***************************** -->
 
-<!--<h1>Mules ONE</h1>-->
-<header th:replace="fragments/header :: header"></header>
+<div th:replace="fragments/header :: header"></div>
 
-<div class="bgimg w3-display-container w3-text-red">
-    <div class="w3-display-topmiddle w3-jumbo">
-        <p>CAMPUS TO CORPORATE</p>
+<div class="bgimg">
+    <div class="w3-display-topmiddle w3-jumbo w3-text-red" style="padding-top: 100px;" >
+        <p>Campus 2 Corporate</p>
     </div>
     <div class="w3-display-middle w3-container w3-xlarge">
-        <div class="w3-container w3-cell">
-            <button onclick="document.getElementById('scanner').style.display='block'" class="w3-button w3-red">
-                Scan Social Media
-            </button>
-        </div>
-        <div class="w3-container w3-cell w3-border w3-white">
-            <header class="w3-container">
-                <h1 style="text-align: center;">Resume</h1>
-            </header>
-            <div class="w3-container">
-            <button onclick="document.getElementById('resume').style.display='block'" class="w3-button w3-red">
-                Resume
-            </button>
+        <div class="w3-display-container w3-cell-middle">
+
+            <div class="w3-card w3-white">
+                <header class="w3-container w-3 red">
+                    <div align="center" style="padding-top: 25px; padding-bottom: 25px">
+                        <button onclick="document.getElementById('scanner').style.display='block'"
+                                class="w3-button w3-red "
+                                id="scanBtn">
+                            Scan Social Media
+                        </button>
+                    </div>
+                    <p class="w3-text-red" style="text-align: center">Cleanup your Online Life!</p>
+                </header>
             </div>
+
         </div>
-        <div class="w3-container w3-cell">
-            <div class="w3-card-4">
-            <button onclick="document.getElementById('expectations').style.display='block'" class="w3-button w3-red">
-                expectations
-            </button>
+
+        <div class="w3-display-container w3-cell-middle" style="padding-top: 50px ">
+            <div class="w3-card w3-white">
+                <header class="w3-container w-3 red">
+                    <div align="center" style="padding-top: 25px; padding-bottom: 25px;">
+                        <button onclick="document.getElementById('resume').style.display='block'"
+                                class="w3-button w3-red " id="resumeBtn">
+                            Resume
+                        </button>
+                    </div>
+                </header>
+                <p class="w3-text-red" style="padding-left: 10px ; padding-right: 10px">Build your professional
+                    Resume! </p>
             </div>
         </div>
     </div>
     <div class="w3-display-bottomleft w3-container">
         <p class="w3-xlarge">IpsumGods</p>
         <p class="w3-large">Powered by Pizza</p>
-        <!--p>powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p-->
     </div>
 </div>
+
 
 <!-- ***************************** end  ***************************** -->
 
 
 <!-- ***************************** Scanner Modal ***************************** -->
 
-<div id="scanner" class="w3-modal " >
+<div id="scanner" class="w3-modal ">
     <div class="w3-modal-content w3-animate-zoom">
-        <!--<div class="w3-container w3-black w3-display-container">-->
-        <!--<span onclick="document.getElementById('scanner').style.display='none'"-->
-        <!--class="w3-button w3-display-topright w3-large">x</span>-->
-        <!--<h1 style="text-align:center">Social Media Scanner</h1>-->
-        <!--</div>-->
-        <div class="modal-header w3-red headWidth" >
-            <span onclick="document.getElementById('scanner').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+        <div class="modal-header w3-red headWidth">
+            <span onclick="document.getElementById('scanner').style.display='none'"
+                  class="w3-button w3-display-topright w3-large">x</span>
             <h5 class="modal-title">Social Media Scanner</h5>
 
         </div>
@@ -131,69 +155,25 @@
                     <input type="hidden" name="scope" value="user_posts"/>
 
                     <button class="smButton" type="submit"><img src="Facebook.png" height="330" width="330"/></button>
-
-
                 </form>
             </div>
             <div class="w3-container w3-cell smButton element" id="twitterButton">
                 <form class="formClass" action="/connect/twitter" method="POST">
-                    <button class="smButton" type="submit"><img src="Twitter.png" height="330" width="330"/> </button>
+                    <button class="smButton" type="submit"><img src="Twitter.png" height="330" width="330"/></button>
 
                 </form>
             </div>
         </div>
     </div>
 </div>
-<!-- ***************************** end  ***************************** -->
 
-
-<!-- ***************************** facebook submodal  ***************************** -->
-
-<div id="facebook" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-black w3-display-container">
-            <span onclick="document.getElementById('facebook').style.display='none'"
-                  class="w3-button w3-display-topright w3-large">x</span>
-            <h1>Facebook</h1>
-        </div>
-
-        <div class="w3-container">
-            <p>
-
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- *****************************  end ***************************** -->
-
-
-<!-- ***************************** twitter submodal  ***************************** -->
-
-<div id="twitter" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container w3-display-container">
-            <span onclick="document.getElementById('twitter').style.display='none'"
-                  class="w3-button w3-display-topright w3-large">x</span>
-            <h1>Twitter</h1>
-        </div>
-
-        <div class="w3-container">
-            <p>Something here</p>
-        </div>
-    </div>
-</div>
-
-<!-- ***************************** end  ***************************** -->
-
-
-<!-- ***************************** resume modal ***************************** -->
 <div id="resume" class="w3-modal">
     <div class="w3-modal-content w3-animate-zoom">
         <div class="w3-container">
             <div class="modal-header">
-                <span onclick="document.getElementById('resume').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-                <h5 class="modal-title">Resume Builder</h5>
+                <span onclick="document.getElementById('resume').style.display='none'"
+                      class="w3-button w3-display-topright w3-large">x</span>
+                <h2 class="modal-title" style="justify-content: center; text-align: center">Resume Builder</h2>
 
             </div>
             <div class="modal-body">
@@ -217,7 +197,7 @@
                                    name="LinkedIn" id="rLinkedIn"/>
                             <input type="text" placeholder="Repository" th:field="*{repository}" class="form-control"
                                    name="Repository" id="rRepository"/></p>
-
+                        <hr/>
                         <h2>Work Experience</h2>
 
                         <p id="rWorkParent">
@@ -229,7 +209,7 @@
                                    name="Start Date" id="rStart"/>
                             <input type="text" placeholder="End Date" th:field="*{endDate}" class="form-control"
                                    name="End Date" id="rEnd"/></p>
-
+                        <hr/>
                         <h2>Education</h2>
 
                         <p id="rEducationParent">
@@ -248,18 +228,6 @@
         </div>
     </div>
 </div>
-
-<!--<div class="modal-backdrop fade in"></div>-->
-
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-        crossorigin="anonymous"></script>
 </body>
 </html>
 
