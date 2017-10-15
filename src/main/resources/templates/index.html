@@ -78,10 +78,14 @@
             width: 100%;
         }
 
-        #logo.reize {
-
+        #title {
+            font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+            font-size: 92px;
+            padding: 80px 50px;
+            text-align: center;
+            text-transform: uppercase;
+            text-rendering: optimizeLegibility;
         }
-
     </style>
 
 </head>
@@ -92,7 +96,7 @@
 <div th:replace="fragments/header :: header"></div>
 
 <div class="bgimg">
-    <div class="w3-display-topmiddle w3-jumbo w3-text-red" style="padding-top: 100px;" >
+    <div class="w3-display-topmiddle w3-jumbo w3-text-red" style="padding-top: 100px;" id="title" >
         <p>Campus 2 Corporate</p>
     </div>
     <div class="w3-display-middle w3-container w3-xlarge">
@@ -142,10 +146,11 @@
 
 <div id="scanner" class="w3-modal ">
     <div class="w3-modal-content w3-animate-zoom">
-        <div class="modal-header w3-red headWidth">
+        <div class="modal-header w3-black headWidth">
             <span onclick="document.getElementById('scanner').style.display='none'"
                   class="w3-button w3-display-topright w3-large">x</span>
-            <h5 class="modal-title">Social Media Scanner</h5>
+            <h3 class="modal-title" style="justify-content: center;color:#74a2e6;   text-align: center;">Social Media Scanner</h3>
+
 
         </div>
 
@@ -169,11 +174,13 @@
 
 <div id="resume" class="w3-modal">
     <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container">
+        <div class="w3-container w3-black headWidth">
             <div class="modal-header">
                 <span onclick="document.getElementById('resume').style.display='none'"
                       class="w3-button w3-display-topright w3-large">x</span>
-                <h2 class="modal-title" style="justify-content: center; text-align: center">Resume Builder</h2>
+                <h3 class="modal-title" style="justify-content: center;   text-align: center;">Resume Builder</h3>
+
+
 
             </div>
             <div class="modal-body">
