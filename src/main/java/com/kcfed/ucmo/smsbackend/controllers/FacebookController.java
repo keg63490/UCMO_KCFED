@@ -51,9 +51,6 @@ public class FacebookController {
                 .filter(this::checkWords)
                 .collect(Collectors.toList());
 
-
-        PagedList<Post> allPosts = facebook.feedOperations().getPosts();
-
         model.addAttribute("feed", posts);
         return "facebookPosts";
     }

@@ -18,8 +18,10 @@ import java.util.stream.Collectors;
 public class TwitterController {
 
     private Twitter twitter;
-
     private ConnectionRepository connectionRepository;
+
+    private String[] words = {"next", "birthday", "drinks", "heavens to betsy", "darn", "dag nabbit", "drank", "drunk", "wasted" };
+
 
     @Inject
     public TwitterController(Twitter twitter, ConnectionRepository connectionRepository) {
@@ -40,7 +42,6 @@ public class TwitterController {
     }
 
     private boolean checkWords(String text) {
-        String[] words = {"test", "random"};
 
         for (String word : words) {
             if (text.contains(word))
