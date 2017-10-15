@@ -25,7 +25,7 @@ public class FacebookController {
     @GetMapping
     public String helloFacebook(Model model) {
         if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
-            return "redirect:/connect/facebook";
+            return "redirect:/";
         }
         String [] fields = { "id","name","birthday","email","location","hometown","gender","first_name","last_name"};
         User user = facebook.fetchObject("me", User.class, fields);
@@ -45,7 +45,7 @@ public class FacebookController {
         PagedList<Post> feed = facebook.feedOperations().getFeed();
         ArrayList<Post> filteredFeed = new ArrayList<>();
 
-        String[] words = {"next", "birthday", "whooped"};
+        String[] words = {"next", "birthday"};
 
         for (String word : words) {
 
@@ -57,7 +57,7 @@ public class FacebookController {
         feed.clear();
         feed.addAll(filteredFeed);
         model.addAttribute("feed", feed);
-        return "hello";
+        return "facebookPosts";
     }
 
 }

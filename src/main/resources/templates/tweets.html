@@ -1,4 +1,8 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:text-align="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+
 <head>
 </head>
 <body>
@@ -6,10 +10,20 @@
 
 <h4>Matched Tweets:</h4>
 
-<div th:each="tweet:${tweets}">
-    <!--<b th:text="${post.from.name}">from</b> wrote:-->
-    <p th:text="${tweet.text}">message text</p>
-    <hr/>
+<div class="w3-container">
+    <div th:each="tweet:${tweets}">
+        <a th:href="@{'https://twitter.com/statuses/' + ${tweet.idStr}}" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="w3-right-align">
+                <small th:text="${tweet.createdAt}"></small>
+            </div>
+            <div class="w3-container w3-large">
+                <div class="w3-left-align">
+                    <p th:text="${tweet.text}" style="text-align: center;"></p>
+                </div>
+            </div>
+            <hr/>
+        </a>
+    </div>
 </div>
 </body>
 </html>

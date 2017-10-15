@@ -47,12 +47,9 @@
 
         .bgimg {
             min-height: 100%;
-            background: url("backgrnd3.png");
+            background: url('backgrnd3.png') center;
             background-size: cover;
         }
-
-
-
     </style>
 
 </head>
@@ -60,7 +57,6 @@
 
 <!-- ***************************** main page  ***************************** -->
 
-<h1>Mules ONE</h1>
 <div class="bgimg w3-display-container w3-text-red">
     <div class="w3-display-middle w3-jumbo">
         <p>CAMPUS TO CORPORATE</p>
@@ -96,16 +92,12 @@
 
 <div id="scanner" class="w3-modal">
     <div class="w3-modal-content w3-animate-zoom">
-        <!--<div class="w3-container w3-black w3-display-container">-->
-            <!--<span onclick="document.getElementById('scanner').style.display='none'"-->
-                  <!--class="w3-button w3-display-topright w3-large">x</span>-->
-            <!--<h1 style="text-align:center">Social Media Scanner</h1>-->
-        <!--</div>-->
-        <div class="modal-header">
-            <span onclick="document.getElementById('scanner').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-            <h5 class="modal-title">Social Media Scanner</h5>
-
+        <div class="w3-container w3-black w3-display-container">
+            <span onclick="document.getElementById('scanner').style.display='none'"
+                  class="w3-button w3-display-topright w3-large">x</span>
+            <h1 style="text-align:center">Social Media Scanner</h1>
         </div>
+
         <div class="w3-container">
             <div class="w3-container w3-cell">
                 <form action="/connect/facebook" method="POST">
@@ -170,13 +162,14 @@
 
 
 <!-- ***************************** resume modal ***************************** -->
-<div id="resume" class="w3-modal">
-    <div class="w3-modal-content w3-animate-zoom">
-        <div class="w3-container">
+<div id="resume" class="modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-                <span onclick="document.getElementById('resume').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
                 <h5 class="modal-title">Resume Builder</h5>
-
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
