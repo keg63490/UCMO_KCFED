@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
 
+    <!--<script src="https://use.fontawesome.com/d83564e635.js"></script>-->
+
+
     <style>
         body, h1, h5 {
             font-family: "Raleway", sans-serif
@@ -18,7 +21,29 @@
         body, html {
             height: 100%
         }
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 100%;
+        }
 
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
 
         .bgimg {
             min-height: 100%;
@@ -27,31 +52,8 @@
         }
     </style>
 
-    <script>
-
-        // nav bar controls 1 and 2
-        function closeScanner() {
-            var x = document.getElementById("scanner");
-            document.getElementById('facebook').style.display = 'none';
-        }
-
-
-    </script>
-
-
 </head>
 <body>
-
-<!--<div id="fb-root"></div>-->
-<!--<script>(function (d, s, id) {-->
-<!--var js, fjs = d.getElementsByTagName(s)[0];-->
-<!--if (d.getElementById(id)) return;-->
-<!--js = d.createElement(s);-->
-<!--js.id = id;-->
-<!--js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=220697878470502";-->
-<!--fjs.parentNode.insertBefore(js, fjs);-->
-<!--}(document, 'script', 'facebook-jssdk'));</script>-->
-
 
 <!-- ***************************** main page  ***************************** -->
 
@@ -93,21 +95,25 @@
         <div class="w3-container w3-black w3-display-container">
             <span onclick="document.getElementById('scanner').style.display='none'"
                   class="w3-button w3-display-topright w3-large">x</span>
-            <h1>Social Media Scanner</h1>
+            <h1 style="text-align:center">Social Media Scanner</h1>
         </div>
 
         <div class="w3-container">
-            <form action="/connect/facebook" method="POST">
-                <input type="hidden" name="scope" value="user_posts"/>
-                <p>
-                    <button type="submit">Connect to Facebook</button>
-                </p>
-            </form>
-            <form action="/connect/twitter" method="POST">
-                <p>
-                    <button type="submit">Connect to Twitter</button>
-                </p>
-            </form>
+            <div class="w3-container w3-cell">
+                <form action="/connect/facebook" method="POST">
+                    <input type="hidden" name="scope" value="user_posts"/>
+                    <p>
+                        <button type="submit">Connect to Facebook</button>
+                    </p>
+                </form>
+            </div>
+            <div class="w3-container w3-cell">
+                <form action="/connect/twitter" method="POST">
+                    <p>
+                        <button type="submit">Connect to Twitter</button>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -165,55 +171,55 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-                <div class="modal-body">
-                    <div class="form-group">
+            <div class="modal-body">
+                <div class="form-group">
 
-                        <form action="#" th:action="@{/resume}" th:object="${resume}" method="POST">
-                            <h2>Personal Information</h2>
+                    <form action="#" th:action="@{/resume}" th:object="${resume}" method="POST">
+                        <h2>Personal Information</h2>
 
-                            <p id="rNameParent">
-                                <input type="text" class="form-control"
-                                       placeholder="Name"
-                                       name="Name"
-                                       id="rName" th:field="*{name}"/>
-                                <input type="text" placeholder="Address" class="form-control"
-                                       name="Address" id="rAddress" th:field="*{address}"/>
-                                <input type="text" placeholder="Phone Number" name="Phone Number" class="form-control"
-                                       id="rPhone"/>
-                                <input type="text" placeholder="Email" th:field="*{email}"
-                                       class="form-control"  name="Email" id="rEmail"/>
-                                <input type="text" placeholder="LinkedIn" th:field="*{linkedIn}" class="form-control"
-                                       name="LinkedIn" id="rLinkedIn"/>
-                                <input type="text" placeholder="Repository" th:field="*{repository}" class="form-control"
-                                       name="Repository" id="rRepository"/></p>
+                        <p id="rNameParent">
+                            <input type="text" class="form-control"
+                                   placeholder="Name"
+                                   name="Name"
+                                   id="rName" th:field="*{name}"/>
+                            <input type="text" placeholder="Address" class="form-control"
+                                   name="Address" id="rAddress" th:field="*{address}"/>
+                            <input type="text" placeholder="Phone Number" name="Phone Number" class="form-control"
+                                   id="rPhone"/>
+                            <input type="text" placeholder="Email" th:field="*{email}"
+                                   class="form-control" name="Email" id="rEmail"/>
+                            <input type="text" placeholder="LinkedIn" th:field="*{linkedIn}" class="form-control"
+                                   name="LinkedIn" id="rLinkedIn"/>
+                            <input type="text" placeholder="Repository" th:field="*{repository}" class="form-control"
+                                   name="Repository" id="rRepository"/></p>
 
-                            <h2>Work Experience</h2>
+                        <h2>Work Experience</h2>
 
-                            <p id="rWorkParent">
-                                <input type="text" placeholder="Position" th:field="*{position}" class="form-control"
-                                       name="Position" id="rPosition"/>
-                                <input type="text" placeholder="Company" th:field="*{company}" class="form-control"
-                                       name="Company" id="rCompany"/>
-                                <input type="text" placeholder="Start Date" th:field="*{startDate}" class="form-control"
-                                       name="Start Date" id="rStart"/>
-                                <input type="text" placeholder="End Date" th:field="*{endDate}" class="form-control"
-                                       name="End Date" id="rEnd"/></p>
+                        <p id="rWorkParent">
+                            <input type="text" placeholder="Position" th:field="*{position}" class="form-control"
+                                   name="Position" id="rPosition"/>
+                            <input type="text" placeholder="Company" th:field="*{company}" class="form-control"
+                                   name="Company" id="rCompany"/>
+                            <input type="text" placeholder="Start Date" th:field="*{startDate}" class="form-control"
+                                   name="Start Date" id="rStart"/>
+                            <input type="text" placeholder="End Date" th:field="*{endDate}" class="form-control"
+                                   name="End Date" id="rEnd"/></p>
 
-                            <h2>Education</h2>
+                        <h2>Education</h2>
 
-                            <p id="rEducationParent">
-                                <input type="text" placeholder="University" th:field="*{university}" class="form-control"
-                                       name="University" id="rUniversity"/>
-                                <input type="text" placeholder="Program" th:field="*{program}" class="form-control"
-                                       name="Program" id="rProgram"/>
-                                <input type="text" placeholder="Degree" th:field="*{degree}" class="form-control"
-                                       name="Degree" id="rDegree"/></p>
-                            <div class="modal-footer">
-                                <input type="submit" class="btn btn-primary" value="Submit Form"/>
-                            </div>
-                        </form>
-                    </div>
+                        <p id="rEducationParent">
+                            <input type="text" placeholder="University" th:field="*{university}" class="form-control"
+                                   name="University" id="rUniversity"/>
+                            <input type="text" placeholder="Program" th:field="*{program}" class="form-control"
+                                   name="Program" id="rProgram"/>
+                            <input type="text" placeholder="Degree" th:field="*{degree}" class="form-control"
+                                   name="Degree" id="rDegree"/></p>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" value="Submit Form"/>
+                        </div>
+                    </form>
                 </div>
+            </div>
         </div>
     </div>
 </div>
