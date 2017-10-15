@@ -16,8 +16,7 @@ public class FacebookController {
 
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
-    private String[] words = {"next", "birthday"};
-
+    private String[] words = {"next", "birthday", "drinks", "heavens to betsy", "darn", "dag nabbit", "drank", "drunk", "wasted" };
 
     public FacebookController(Facebook facebook, ConnectionRepository connectionRepository) {
         this.facebook = facebook;
@@ -51,6 +50,9 @@ public class FacebookController {
                 .stream()
                 .filter(this::checkWords)
                 .collect(Collectors.toList());
+
+
+        PagedList<Post> allPosts = facebook.feedOperations().getPosts();
 
         model.addAttribute("feed", posts);
         return "facebookPosts";

@@ -25,8 +25,7 @@
 
     <div class="w3-container">
         <div th:each="post:${feed}">
-            <a th:href="${post.link}"
-               class="list-group-item list-group-item-action flex-column align-items-start">
+            <a th:href="@{'https://facebook.com/' + ${post.id}}" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="w3-right-align">
                     <small th:text="${post.createdTime}"></small>
                 </div>
